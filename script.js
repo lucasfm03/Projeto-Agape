@@ -7,6 +7,15 @@ document.querySelectorAll('nav a').forEach(link => {
   });
 });
 
+// Botão 'Ver portfólio' no hero
+const verPortfolioBtn = document.querySelector('.hero-text button');
+if (verPortfolioBtn) {
+  verPortfolioBtn.addEventListener('click', (e) => {
+    const portfolio = document.getElementById('portfolio');
+    if (portfolio) portfolio.scrollIntoView({ behavior: 'smooth' });
+  });
+}
+
 // LIGHTBOX: abrir imagem ampliada em modal
 (() => {
   const lightbox = document.getElementById('lightbox');
