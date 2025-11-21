@@ -1,0 +1,368 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: glamor sans-serif;
+}
+
+body {
+  background: #fafafa;
+  color: #222;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+header .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+nav a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 140%;
+  object-fit: cover;
+  filter: grayscale(70%);
+}
+
+.hero-text {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
+
+.hero-text p {
+  font-size: 1.4rem;
+  margin-top: 10px;
+}
+
+.hero-text button {
+  margin-top: 50px;
+  background: #fff;
+  border: none;
+  padding: 10px 35px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.0rem;
+}
+
+/* SOBRE */
+.sobre {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 40px 20px;
+  gap: 40px;
+  background: #fff8f0;
+}
+
+.sobre .texto {
+  max-width: 60%;
+}
+
+.sobre .texto h2 {
+  margin: 0 0 12px 0;
+  font-size: 1.6rem;
+}
+
+.sobre .texto p {
+  margin-top: 150px;
+  line-height: 1.6;
+}
+
+.sobre img {
+  width: 40%;
+  border-radius: 10px;
+}
+
+/* GALERIA */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 40px;
+  background: #fff;
+}
+
+.galeria img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+/* EFEITOS: zoom suave nas fotos ao passar o mouse */
+.galeria img {
+  transition: transform 300ms ease, box-shadow 300ms ease;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.galeria img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+/* CONTATO */
+.contato {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 40px;
+  background: #fff8f0;
+}
+
+.contato .orcamento {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  max-width: 65%;
+}
+
+.contato .orcamento h2 {
+  margin: 0 0 20px 0;
+}
+
+.contato .orcamento .info {
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+}
+
+.contato form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 30%;
+}
+
+.contato input, .contato button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contato button {
+  background: #222;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* EFEITOS: contorno/sombra e leve elevação nos botões */
+.hero-text button,
+.contato button {
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  will-change: transform;
+}
+
+.hero-text button:hover,
+.contato button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(34,34,34,0.12);
+}
+
+.hero-text button:focus,
+.contato button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(34,34,34,0.12);
+}
+
+/* LIGHTBOX / MODAL */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 2000;
+  padding: 20px;
+}
+
+.lightbox.active {
+  display: grid;
+}
+
+.lightbox-content {
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  max-width: 900px;
+  max-height: 85vh;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  display: block;
+  border-radius: 6px;
+}
+
+/* clicar fora da imagem fecha; garantir que clicks na imagem não fechem */
+.lightbox-content { cursor: default; }
+.lightbox { cursor: pointer; }
+.lightbox-content * { cursor: default; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #f4f4f4;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVO: tablets e celulares */
+@media (max-width: 900px) {
+  header {
+    padding: 16px 30px;
+  }
+
+  .hero {
+    height: 50vh;
+  }
+
+  .hero-text h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-text p {
+    font-size: 1.1rem;
+  }
+
+  .sobre {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 16px;
+    gap: 20px;
+  }
+
+  .sobre .texto {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .sobre img {
+    width: 100%;
+    order: 2;
+  }
+
+  .contato {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    padding: 30px 16px;
+  }
+
+  .contato .orcamento {
+    width: 100%;
+    max-width: none;
+    align-items: center;
+  }
+
+  .contato .orcamento .info {
+    margin: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contato form {
+    width: 100%;
+  }
+
+  .contato input, .contato button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .galeria {
+    padding: 20px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 12px 16px;
+  }
+
+  header .logo {
+    font-size: 1.4rem;
+  }
+
+  nav a {
+    margin-left: 12px;
+    font-size: 0.95rem;
+  }
+
+  .hero {
+    height: 40vh;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .sobre .texto h2,
+  .contato .orcamento h2 {
+    text-align: left;
+  }
+
+  .sobre .texto p {
+    text-align: left;
+    margin-top: 50px;
+  }
+
+  .lightbox-content {
+    padding: 8px;
+    max-width: 95%;
+    max-height: 90vh;
+  }
+
+  .lightbox-content img {
+    max-height: 80vh;
+  }
+}
