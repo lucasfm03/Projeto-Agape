@@ -26,7 +26,7 @@ O projeto foi desenvolvido com **HTML, CSS e JavaScript**, mantendo foco em desi
 
 ## 📦 Como Executar o Projeto
 
-- Baixe ou clone o repositório: git clone https://github.com/usuario/projeto-gape.git
+- Baixe ou clone o repositório: git clone https://github.com/usuario/projeto-agape.git
 - Execute o index no navegador e pronto, já está rodando localmente.
 - Ou acesse diretamente em: https://projeto-agape-five.vercel.app/
 
